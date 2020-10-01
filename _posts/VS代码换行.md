@@ -6,12 +6,12 @@
 
 打开VS，依次点击上方菜单中的　**工具**　=>　**选项**　=>　**文本编辑器**　=>　**C#**
 
-![](D:\文档\博客源文件\pic\vs换行.png)
+![](https://github.com/sbchong/sbchong.github.io/blob/master/_posts/pic/%E6%8D%A2%E8%A1%8C.png)
 
 保存设置之后，返回编辑器界面，可以看到长代码已经自动换行，并且在右侧显示了换行符，但其行号并未改变
 
-![image-20200421180909043](.\VS效果.png)
+![image-20200421180909043](https://raw.githubusercontent.com/sbchong/sbchong.github.io/master/_posts/pic/VS%E6%95%88%E6%9E%9C.png)
 
 除此之外，也可以使用@来实现多行字符赋值，效果如下，可以看到行号的变化，以及右侧没有显示换行符
 
-![image-20200421181255261](.\pic\换行.png)
+![image-20200421181255261](https://github.com/sbchong/sbchong.github.io/blob/master/_posts/pic/%E6%8D%A2%E8%A1%8C.png)
