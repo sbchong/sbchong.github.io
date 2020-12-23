@@ -28,7 +28,7 @@ public void Run()
     IPEndPoint ipe = new IPEndPoint(IPAddress.Any, 80);
     TcpListener tcpListener = new TcpListener(ipe);
     tcpListener.Start();
-    
+
     Accept();
 }
 ```
@@ -54,14 +54,45 @@ public void Accept()
         }
     }
     catch (Exception ex) { Console.WriteLine(ex.Message); }
-    
+
     Accept();
 }
 ```
+
 ### 接收请求
 
 一旦建立连接，则开始接收请求
 
 ```C#
-Request
+public void Request()
+{
+    string request = string.Empty;
+    byte[] receiveBytes = new byte[tmpTcpClient.ReceiveBufferSize];
+    int numberOfBytesRead = 0;
+    NetworkStream ns = tmpTcpClient.GetStream();
+
+    if (ns.CanRead)
+    {
+        do
+        {
+            numberOfBytesRead = ns.Read(receiveBytes, 0, tmpTcpClient.ReceiveBufferSize);
+            request += Encoding.UTF8.GetString(receiveBytes, 0, numberOfBytesRead);
+        }
+        while (ns.DataAvailable);
+     }
+
+     Process(request)
+}
+```
+
+### 解析请求
+
+接收到的请求字符串进行解析，通过分析HTTP包结构来处理
+
+先来复习一下HTTP报文结构
+
+整个HTTP请求报文分为两部分，一个是请求头，一个是请求体
+
+```C#
+
 ```

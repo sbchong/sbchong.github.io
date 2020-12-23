@@ -90,9 +90,11 @@ window.readUploadedFileAsText = (inputFile) => {
 
 ## 残留问题
 
-使用上面的代码，可以实现 Blazor 客户端上传文件到服务器，但在这个过程中我也发现，当选择的文件超过一定大小时，会引发错误：<font color=red>
-**Uncaught (in promise) RuntimeError: memory access out of bounds。
-</font>**
+使用上面的代码，可以实现 Blazor 客户端上传文件到服务器，但在这个过程中我也发现，当选择的文件超过一定大小时，会引发错误：
+
+<font color=red>
+**Uncaught (in promise) RuntimeError: memory access out of bounds。**
+</font>
 
 这可能由于 wasm 和 js 互操作时的共享内存规定所导致的，网上解决方案时在 wasm 打包时指定内存，但 Blazor 中没有找到合适的解决方案。
 
